@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ürünler — Torf & Toprak</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--soil:#2C1A0E;--earth:#5C3D1E;--moss:#3D6B35;--sage:#7AAB6B;--cream:#F5F0E8;--sand:#E8DCC8;--white:#FDFCFA;--text:#1A1208;--text2:#6B5540;}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--text);}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5%;height:70px;display:flex;align-items:center;justify-content:space-between;background:rgba(253,252,250,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(92,61,30,0.1);}
+.nav-logo{font-family:'DM Serif Display',serif;font-size:22px;color:var(--soil);text-decoration:none;}
+.nav-logo span{color:var(--moss);}
+.nav-links{display:flex;gap:32px;list-style:none;align-items:center;}
+.nav-links a{text-decoration:none;color:var(--text2);font-size:14px;font-weight:500;transition:color 0.2s;}
+.nav-links a:hover{color:var(--soil);}
+.nav-links .nav-cta{background:var(--moss);color:#fff;padding:9px 20px;border-radius:100px;font-size:13px;}
+.lang-btn{background:none;border:1px solid var(--sand);color:var(--text2);font-size:12px;padding:4px 10px;border-radius:100px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;}
+.lang-btn.active{background:var(--soil);color:#fff;border-color:var(--soil);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+.hamburger span{width:22px;height:2px;background:var(--soil);border-radius:2px;}
+.mobile-menu{display:none;position:fixed;top:70px;left:0;right:0;background:var(--white);border-bottom:1px solid var(--sand);padding:20px 5%;z-index:99;}
+.mobile-menu.open{display:block;}
+.mobile-menu a{display:block;padding:12px 0;color:var(--text);text-decoration:none;font-size:15px;border-bottom:1px solid var(--sand);}
+.page-hero{padding:120px 5% 60px;background:var(--cream);}
+.section-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--moss);margin-bottom:12px;}
+.page-title{font-family:'DM Serif Display',serif;font-size:clamp(36px,5vw,64px);color:var(--soil);letter-spacing:-1.5px;margin-bottom:16px;}
+.page-title em{font-style:italic;color:var(--moss);}
+.page-sub{font-size:17px;color:var(--text2);font-weight:300;max-width:500px;line-height:1.7;}
+.filter-bar{display:flex;gap:10px;padding:32px 5%;flex-wrap:wrap;border-bottom:1px solid var(--sand);}
+.filter-chip{background:none;border:1.5px solid var(--sand);color:var(--text2);font-size:13px;padding:8px 18px;border-radius:100px;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:500;transition:all 0.2s;}
+.filter-chip.active,.filter-chip:hover{background:var(--soil);color:#fff;border-color:var(--soil);}
+.products-section{padding:60px 5%;}
+.category-title{font-family:'DM Serif Display',serif;font-size:28px;color:var(--soil);margin-bottom:28px;display:flex;align-items:center;gap:12px;}
+.category-title::after{content:'';flex:1;height:1px;background:var(--sand);}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px;margin-bottom:60px;}
+.prod-card{background:var(--cream);border-radius:20px;padding:28px;transition:all 0.25s;position:relative;overflow:hidden;}
+.prod-card:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(44,26,14,0.1);}
+.prod-badge{position:absolute;top:16px;right:16px;background:var(--moss);color:#fff;font-size:10px;font-weight:700;padding:4px 10px;border-radius:100px;letter-spacing:0.5px;}
+.prod-emoji{font-size:48px;margin-bottom:20px;display:block;}
+.prod-name{font-family:'DM Serif Display',serif;font-size:22px;color:var(--soil);margin-bottom:8px;}
+.prod-desc{font-size:14px;color:var(--text2);line-height:1.7;font-weight:300;margin-bottom:20px;}
+.prod-sizes{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px;}
+.size-tag{background:var(--white);color:var(--earth);font-size:12px;font-weight:600;padding:4px 10px;border-radius:8px;border:1px solid var(--sand);}
+.prod-footer{display:flex;align-items:center;justify-content:space-between;}
+.prod-cta{background:var(--soil);color:#fff;padding:10px 18px;border-radius:100px;text-decoration:none;font-size:13px;font-weight:600;transition:all 0.2s;}
+.prod-cta:hover{background:var(--moss);}
+.whatsapp-cta{background:#25D366;color:#fff;padding:10px 18px;border-radius:100px;text-decoration:none;font-size:13px;font-weight:600;transition:all 0.2s;}
+footer{background:var(--soil);color:var(--sand);padding:40px 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+.footer-brand{font-family:'DM Serif Display',serif;font-size:20px;color:var(--cream);}
+.footer-links{display:flex;gap:24px;}
+.footer-links a{color:rgba(232,220,200,0.65);text-decoration:none;font-size:13px;transition:color 0.2s;}
+.footer-links a:hover{color:var(--cream);}
+@media(max-width:768px){.nav-links{display:none;}.hamburger{display:flex;}.products-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:480px){.products-grid{grid-template-columns:1fr;}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+.page-hero>*{animation:fadeUp 0.6s ease both;}
+.page-hero .section-label{animation-delay:0.05s;}
+.page-hero .page-title{animation-delay:0.1s;}
+.page-hero .page-sub{animation-delay:0.2s;}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">Torf<span>&</span>Toprak</a>
+  <ul class="nav-links">
+    <li><a href="urunler.html" style="color:var(--soil);font-weight:600" data-tr="Ürünler" data-en="Products">Ürünler</a></li>
+    <li><a href="hakkimizda.html" data-tr="Hakkımızda" data-en="About">Hakkımızda</a></li>
+    <li><a href="iletisim.html" data-tr="İletişim" data-en="Contact">İletişim</a></li>
+    <li><a href="app.html" class="nav-cta">Yönetim</a></li>
+    <li style="display:flex;gap:6px">
+      <button class="lang-btn active" onclick="setLang('tr')">TR</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:12px">
+    <div style="display:flex;gap:6px">
+      <button class="lang-btn active" onclick="setLang('tr')">TR</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Ana Sayfa</a>
+  <a href="urunler.html">Ürünler</a>
+  <a href="hakkimizda.html">Hakkımızda</a>
+  <a href="iletisim.html">İletişim</a>
+</div>
+
+<div class="page-hero">
+  <div class="section-label" data-tr="ÜRÜNLERİMİZ" data-en="OUR PRODUCTS">ÜRÜNLERİMİZ</div>
+  <h1 class="page-title" data-tr="Her bitki için<br><em>doğru toprak</em>" data-en="The <em>right soil</em><br>for every plant">Her bitki için<br><em>doğru toprak</em></h1>
+  <p class="page-sub" data-tr="Doğal içerikli torf ve toprak ürünlerimizle bitkilerinizi en iyi şekilde besleyin." data-en="Nourish your plants the best way with our natural peat and soil products.">Doğal içerikli torf ve toprak ürünlerimizle bitkilerinizi en iyi şekilde besleyin.</p>
+</div>
+
+<div class="filter-bar">
+  <button class="filter-chip active" onclick="filterProducts('all',this)" data-tr="Tümü" data-en="All">Tümü</button>
+  <button class="filter-chip" onclick="filterProducts('torf',this)" data-tr="Torf" data-en="Peat">Torf</button>
+  <button class="filter-chip" onclick="filterProducts('kaktus',this)" data-tr="Kaktüs" data-en="Cactus">Kaktüs</button>
+  <button class="filter-chip" onclick="filterProducts('orkide',this)" data-tr="Orkide" data-en="Orchid">Orkide</button>
+</div>
+
+<section class="products-section">
+  <div class="category-title" data-tr="🌿 Torf Ürünleri" data-en="🌿 Peat Products">🌿 Torf Ürünleri</div>
+  <div class="products-grid" id="torfGrid">
+    <div class="prod-card" data-category="torf">
+      <span class="prod-badge" data-tr="En Çok Satan" data-en="Best Seller">En Çok Satan</span>
+      <span class="prod-emoji">🌿</span>
+      <div class="prod-name" data-tr="Evrensel Torf" data-en="Universal Peat">Evrensel Torf</div>
+      <div class="prod-desc" data-tr="Her tür iç ve dış mekan bitkisi için ideal. Yüksek organik madde içeriği ile bitkilerinize besin sağlar." data-en="Ideal for all indoor and outdoor plants. Provides nutrients to your plants with high organic matter content.">Her tür iç ve dış mekan bitkisi için ideal. Yüksek organik madde içeriği ile bitkilerinize besin sağlar.</div>
+      <div class="prod-sizes">
+        <span class="size-tag">3 Lt</span><span class="size-tag">5 Lt</span><span class="size-tag">10 Lt</span><span class="size-tag">20 Lt</span><span class="size-tag">40 Lt</span><span class="size-tag">70 Lt</span><span class="size-tag">80 Lt</span>
+      </div>
+      <div class="prod-footer">
+        <a href="https://wa.me/905XXXXXXXXX?text=Evrensel+Torf+hakkinda+bilgi+almak+istiyorum" class="whatsapp-cta" target="_blank">💬 Sipariş Ver</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="category-title" data-tr="🌵 Kaktüs & Sukulent" data-en="🌵 Cactus & Succulent">🌵 Kaktüs & Sukulent</div>
+  <div class="products-grid" id="kaktusGrid">
+    <div class="prod-card" data-category="kaktus">
+      <span class="prod-emoji">🌵</span>
+      <div class="prod-name" data-tr="Kaktüs Toprağı" data-en="Cactus Soil">Kaktüs Toprağı</div>
+      <div class="prod-desc" data-tr="Kaktüs ve sukulent bitkiler için özel olarak formüle edilmiştir. Mükemmel drenaj özelliği ve düşük nem tutma kapasitesi." data-en="Specially formulated for cacti and succulents. Excellent drainage and low moisture retention capacity.">Kaktüs ve sukulent bitkiler için özel olarak formüle edilmiştir. Mükemmel drenaj özelliği ve düşük nem tutma kapasitesi.</div>
+      <div class="prod-sizes"><span class="size-tag">3 Lt</span></div>
+      <div class="prod-footer">
+        <span class="prod-badge" style="position:relative;top:auto;right:auto;background:rgba(61,107,53,0.1);color:var(--moss)" data-tr="Özel Formül" data-en="Special Formula">Özel Formül</span>
+        <a href="https://wa.me/905XXXXXXXXX?text=Kaktus+Topragi+hakkinda+bilgi+almak+istiyorum" class="whatsapp-cta" target="_blank">💬 Sipariş Ver</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="category-title" data-tr="🌸 Orkide" data-en="🌸 Orchid">🌸 Orkide</div>
+  <div class="products-grid" id="orkideGrid">
+    <div class="prod-card" data-category="orkide">
+      <span class="prod-emoji">🌸</span>
+      <div class="prod-name" data-tr="Orkide Toprağı" data-en="Orchid Soil">Orkide Toprağı</div>
+      <div class="prod-desc" data-tr="Orkide bitkilerinin ihtiyaç duyduğu havalanma ve nem dengesini mükemmel sağlar. Kabuk parçacıkları ile zenginleştirilmiş özel karışım." data-en="Perfectly provides the aeration and moisture balance orchids need. Special mix enriched with bark particles.">Orkide bitkilerinin ihtiyaç duyduğu havalanma ve nem dengesini mükemmel sağlar. Kabuk parçacıkları ile zenginleştirilmiş özel karışım.</div>
+      <div class="prod-sizes"><span class="size-tag">3 Lt</span></div>
+      <div class="prod-footer">
+        <span class="prod-badge" style="position:relative;top:auto;right:auto;background:rgba(61,107,53,0.1);color:var(--moss)" data-tr="Premium" data-en="Premium">Premium</span>
+        <a href="https://wa.me/905XXXXXXXXX?text=Orkide+Topragi+hakkinda+bilgi+almak+istiyorum" class="whatsapp-cta" target="_blank">💬 Sipariş Ver</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">Torf & Toprak</div>
+  <div class="footer-links">
+    <a href="index.html" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a>
+    <a href="hakkimizda.html" data-tr="Hakkımızda" data-en="About">Hakkımızda</a>
+    <a href="iletisim.html" data-tr="İletişim" data-en="Contact">İletişim</a>
+  </div>
+  <span style="font-size:13px;color:rgba(232,220,200,0.4)" data-tr="© 2026 Torf & Toprak" data-en="© 2026 Torf & Toprak">© 2026 Torf & Toprak</span>
+</footer>
+
+<script>
+function setLang(lang){
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.textContent===lang.toUpperCase()));
+  document.querySelectorAll('[data-tr]').forEach(el=>{const t=el.getAttribute('data-'+lang);if(t)el.innerHTML=t;});
+}
+function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open');}
+function filterProducts(cat,btn){
+  document.querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.prod-card').forEach(c=>{
+    c.style.display=(cat==='all'||c.dataset.category===cat)?'block':'none';
+  });
+  document.querySelectorAll('.category-title').forEach(t=>{
+    t.style.display=cat==='all'?'flex':'none';
+  });
+}
+</script>
+</body>
+</html>
