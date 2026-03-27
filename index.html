@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Torf & Toprak — Doğal Bahçe Ürünleri</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --soil:#2C1A0E;
+  --earth:#5C3D1E;
+  --moss:#3D6B35;
+  --sage:#7AAB6B;
+  --cream:#F5F0E8;
+  --sand:#E8DCC8;
+  --white:#FDFCFA;
+  --text:#1A1208;
+  --text2:#6B5540;
+  --accent:#3D6B35;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5%;height:70px;display:flex;align-items:center;justify-content:space-between;background:rgba(253,252,250,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(92,61,30,0.1);}
+.nav-logo{font-family:'DM Serif Display',serif;font-size:22px;color:var(--soil);text-decoration:none;letter-spacing:-0.5px;}
+.nav-logo span{color:var(--moss);}
+.nav-links{display:flex;gap:32px;list-style:none;align-items:center;}
+.nav-links a{text-decoration:none;color:var(--text2);font-size:14px;font-weight:500;letter-spacing:0.3px;transition:color 0.2s;}
+.nav-links a:hover{color:var(--soil);}
+.nav-links .nav-cta{background:var(--moss);color:#fff;padding:9px 20px;border-radius:100px;font-size:13px;transition:background 0.2s;}
+.nav-links .nav-cta:hover{background:var(--soil);color:#fff;}
+.nav-lang{display:flex;gap:8px;align-items:center;}
+.lang-btn{background:none;border:1px solid var(--sand);color:var(--text2);font-size:12px;padding:4px 10px;border-radius:100px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;}
+.lang-btn.active{background:var(--soil);color:#fff;border-color:var(--soil);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.hamburger span{width:22px;height:2px;background:var(--soil);border-radius:2px;transition:all 0.3s;}
+.mobile-menu{display:none;position:fixed;top:70px;left:0;right:0;background:var(--white);border-bottom:1px solid var(--sand);padding:20px 5%;z-index:99;}
+.mobile-menu.open{display:block;}
+.mobile-menu a{display:block;padding:12px 0;color:var(--text);text-decoration:none;font-size:15px;border-bottom:1px solid var(--sand);}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding:0 5%;padding-top:70px;align-items:center;gap:60px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;right:-10%;top:10%;width:600px;height:600px;background:radial-gradient(circle,rgba(61,107,53,0.08) 0%,transparent 70%);pointer-events:none;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(61,107,53,0.08);color:var(--moss);border:1px solid rgba(61,107,53,0.2);padding:6px 14px;border-radius:100px;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:24px;}
+.hero-badge::before{content:'';width:6px;height:6px;background:var(--moss);border-radius:50%;}
+.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(42px,5vw,72px);line-height:1.05;letter-spacing:-1.5px;color:var(--soil);margin-bottom:20px;}
+.hero h1 em{font-style:italic;color:var(--moss);}
+.hero-sub{font-size:17px;color:var(--text2);line-height:1.7;margin-bottom:36px;max-width:440px;font-weight:300;}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-primary{background:var(--soil);color:#fff;padding:14px 28px;border-radius:100px;text-decoration:none;font-weight:600;font-size:14px;letter-spacing:0.3px;transition:all 0.25s;display:inline-flex;align-items:center;gap:8px;}
+.btn-primary:hover{background:var(--moss);transform:translateY(-1px);}
+.btn-secondary{background:transparent;color:var(--soil);padding:14px 28px;border-radius:100px;text-decoration:none;font-weight:500;font-size:14px;border:1.5px solid var(--sand);transition:all 0.25s;display:inline-flex;align-items:center;gap:8px;}
+.btn-secondary:hover{border-color:var(--soil);transform:translateY(-1px);}
+.hero-stats{display:flex;gap:32px;margin-top:48px;padding-top:32px;border-top:1px solid var(--sand);}
+.stat-item{text-align:left;}
+.stat-num{font-family:'DM Serif Display',serif;font-size:32px;color:var(--soil);line-height:1;}
+.stat-lbl{font-size:12px;color:var(--text2);margin-top:4px;font-weight:500;}
+.hero-visual{display:flex;align-items:center;justify-content:center;position:relative;}
+.hero-card{background:var(--cream);border-radius:24px;padding:40px;width:100%;max-width:420px;position:relative;overflow:hidden;box-shadow:0 24px 80px rgba(44,26,14,0.12);}
+.hero-card::before{content:'';position:absolute;top:-40px;right:-40px;width:180px;height:180px;background:radial-gradient(circle,rgba(61,107,53,0.15),transparent);border-radius:50%;}
+.product-showcase{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.product-pill{background:var(--white);border-radius:14px;padding:16px;display:flex;align-items:center;gap:10px;font-size:13px;font-weight:500;color:var(--soil);box-shadow:0 2px 12px rgba(44,26,14,0.06);}
+.product-pill .pill-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--moss),var(--sage));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.product-pill-full{grid-column:1/-1;background:var(--moss);color:#fff;border-radius:14px;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;font-size:13px;font-weight:600;}
+.product-pill-full .tag{background:rgba(255,255,255,0.2);padding:4px 10px;border-radius:100px;font-size:11px;}
+
+/* FEATURES */
+.features{padding:100px 5%;background:var(--cream);}
+.section-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--moss);margin-bottom:16px;}
+.section-title{font-family:'DM Serif Display',serif;font-size:clamp(32px,4vw,52px);color:var(--soil);line-height:1.1;letter-spacing:-1px;margin-bottom:60px;max-width:600px;}
+.section-title em{font-style:italic;color:var(--moss);}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.feature-card{background:var(--white);border-radius:20px;padding:32px;transition:transform 0.25s,box-shadow 0.25s;}
+.feature-card:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(44,26,14,0.1);}
+.feature-icon{width:52px;height:52px;background:linear-gradient(135deg,var(--soil),var(--earth));border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:20px;}
+.feature-card h3{font-family:'DM Serif Display',serif;font-size:20px;color:var(--soil);margin-bottom:10px;}
+.feature-card p{font-size:14px;color:var(--text2);line-height:1.7;font-weight:300;}
+
+/* PRODUCTS PREVIEW */
+.products-preview{padding:100px 5%;}
+.products-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;flex-wrap:wrap;gap:20px;}
+.products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.prod-card{background:var(--cream);border-radius:20px;padding:28px 24px;transition:all 0.25s;position:relative;overflow:hidden;}
+.prod-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--moss),var(--sage));transform:scaleX(0);transition:transform 0.3s;transform-origin:left;}
+.prod-card:hover{transform:translateY(-3px);box-shadow:0 16px 48px rgba(44,26,14,0.1);}
+.prod-card:hover::after{transform:scaleX(1);}
+.prod-emoji{font-size:40px;margin-bottom:16px;display:block;}
+.prod-name{font-family:'DM Serif Display',serif;font-size:18px;color:var(--soil);margin-bottom:6px;}
+.prod-desc{font-size:13px;color:var(--text2);line-height:1.6;font-weight:300;margin-bottom:16px;}
+.prod-tag{display:inline-block;background:rgba(61,107,53,0.1);color:var(--moss);font-size:11px;font-weight:600;padding:4px 10px;border-radius:100px;letter-spacing:0.3px;}
+
+/* TESTIMONIALS */
+.testimonials{padding:100px 5%;background:var(--soil);color:var(--cream);}
+.testimonials .section-label{color:var(--sage);}
+.testimonials .section-title{color:var(--cream);}
+.testimonials .section-title em{color:var(--sage);}
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.testimonial-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:28px;}
+.testimonial-text{font-size:15px;line-height:1.7;color:rgba(245,240,232,0.85);font-weight:300;margin-bottom:20px;font-style:italic;}
+.testimonial-author{display:flex;align-items:center;gap:12px;}
+.author-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--moss),var(--sage));display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:16px;color:#fff;}
+.author-name{font-weight:600;font-size:14px;color:var(--cream);}
+.author-role{font-size:12px;color:var(--sage);margin-top:2px;}
+.stars{color:var(--sage);font-size:13px;margin-bottom:14px;letter-spacing:2px;}
+
+/* CTA */
+.cta-section{padding:100px 5%;text-align:center;position:relative;overflow:hidden;}
+.cta-section::before{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(61,107,53,0.06),transparent);pointer-events:none;}
+.cta-section .section-title{margin:0 auto 20px;text-align:center;}
+.cta-sub{font-size:17px;color:var(--text2);margin-bottom:36px;font-weight:300;}
+.cta-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.whatsapp-btn{background:#25D366;color:#fff;padding:14px 28px;border-radius:100px;text-decoration:none;font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:8px;transition:all 0.25s;}
+.whatsapp-btn:hover{background:#1da851;transform:translateY(-1px);}
+
+/* FOOTER */
+footer{background:var(--soil);color:var(--sand);padding:60px 5% 30px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;}
+.footer-brand{font-family:'DM Serif Display',serif;font-size:22px;color:var(--cream);margin-bottom:12px;}
+.footer-desc{font-size:13px;color:rgba(232,220,200,0.65);line-height:1.7;font-weight:300;max-width:260px;}
+.footer-col h4{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--sage);margin-bottom:16px;}
+.footer-col a{display:block;color:rgba(232,220,200,0.65);text-decoration:none;font-size:13px;margin-bottom:10px;transition:color 0.2s;}
+.footer-col a:hover{color:var(--cream);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:rgba(232,220,200,0.4);flex-wrap:wrap;gap:12px;}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;padding-top:90px;min-height:auto;padding-bottom:60px;}
+  .hero-visual{display:none;}
+  .features-grid,.products-grid,.testimonials-grid{grid-template-columns:1fr 1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+}
+@media(max-width:600px){
+  .features-grid,.testimonials-grid{grid-template-columns:1fr;}
+  .products-grid{grid-template-columns:1fr 1fr;}
+  .footer-grid{grid-template-columns:1fr;}
+  .hero-stats{gap:20px;}
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+.hero-badge{animation:fadeUp 0.6s ease both;}
+.hero h1{animation:fadeUp 0.6s 0.1s ease both;}
+.hero-sub{animation:fadeUp 0.6s 0.2s ease both;}
+.hero-actions{animation:fadeUp 0.6s 0.3s ease both;}
+.hero-stats{animation:fadeUp 0.6s 0.4s ease both;}
+.hero-card{animation:fadeUp 0.7s 0.2s ease both;}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Torf<span>&</span>Toprak</a>
+  <ul class="nav-links">
+    <li><a href="urunler.html" data-tr="Ürünler" data-en="Products">Ürünler</a></li>
+    <li><a href="hakkimizda.html" data-tr="Hakkımızda" data-en="About Us">Hakkımızda</a></li>
+    <li><a href="iletisim.html" data-tr="İletişim" data-en="Contact">İletişim</a></li>
+    <li><a href="app.html" class="nav-cta" data-tr="Yönetim Paneli" data-en="Admin Panel">Yönetim Paneli</a></li>
+    <li class="nav-lang">
+      <button class="lang-btn active" onclick="setLang('tr')">TR</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:12px">
+    <div class="nav-lang" style="display:flex;gap:6px">
+      <button class="lang-btn active" onclick="setLang('tr')">TR</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="urunler.html" data-tr="Ürünler" data-en="Products">Ürünler</a>
+  <a href="hakkimizda.html" data-tr="Hakkımızda" data-en="About Us">Hakkımızda</a>
+  <a href="iletisim.html" data-tr="İletişim" data-en="Contact">İletişim</a>
+  <a href="app.html" data-tr="Yönetim Paneli" data-en="Admin Panel">Yönetim Paneli</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge" data-tr="🌱 Doğal & Organik" data-en="🌱 Natural & Organic">🌱 Doğal & Organik</div>
+    <h1 data-tr="Toprağın<br><em>Özünden</em><br>Gelen Kalite" data-en="Quality from the<br><em>Heart</em><br>of the Earth">Toprağın<br><em>Özünden</em><br>Gelen Kalite</h1>
+    <p class="hero-sub" data-tr="Bitkileriniz için en kaliteli torf ve toprak ürünleri. Bahçenizi, terasınızı ve iç mekan bitkilerinizi en doğal şekilde besleyin." data-en="Premium peat and soil products for your plants. Nourish your garden, terrace, and indoor plants the most natural way.">Bitkileriniz için en kaliteli torf ve toprak ürünleri. Bahçenizi, terasınızı ve iç mekan bitkilerinizi en doğal şekilde besleyin.</p>
+    <div class="hero-actions">
+      <a href="urunler.html" class="btn-primary" data-tr="Ürünleri Gör →" data-en="View Products →">Ürünleri Gör →</a>
+      <a href="iletisim.html" class="btn-secondary" data-tr="📞 Bize Ulaşın" data-en="📞 Contact Us">📞 Bize Ulaşın</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num" data-ss-stat-customers="">500+</div>
+        <div class="stat-lbl" data-tr="Mutlu Müşteri" data-en="Happy Customers">Mutlu Müşteri</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">10+</div>
+        <div class="stat-lbl" data-tr="Ürün Çeşidi" data-en="Product Types">Ürün Çeşidi</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">5★</div>
+        <div class="stat-lbl" data-tr="Müşteri Puanı" data-en="Customer Rating">Müşteri Puanı</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card">
+      <div style="font-family:'DM Serif Display',serif;font-size:15px;color:var(--earth);margin-bottom:20px;font-style:italic;">Öne Çıkan Ürünler</div>
+      <div class="product-showcase">
+        <div class="product-pill"><div class="pill-icon">🌿</div><div><div style="font-weight:600">Torf 10 Lt</div><div style="font-size:11px;color:var(--text2)">Evrensel</div></div></div>
+        <div class="product-pill"><div class="pill-icon">🌵</div><div><div style="font-weight:600">Kaktüs</div><div style="font-size:11px;color:var(--text2)">3 Litre</div></div></div>
+        <div class="product-pill"><div class="pill-icon">🌸</div><div><div style="font-weight:600">Orkide</div><div style="font-size:11px;color:var(--text2)">3 Litre</div></div></div>
+        <div class="product-pill"><div class="pill-icon">🌱</div><div><div style="font-weight:600">Torf 40 Lt</div><div style="font-size:11px;color:var(--text2)">Büyük Boy</div></div></div>
+        <div class="product-pill-full">🚚 Hızlı Teslimat <span class="tag">Türkiye Geneli</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="section-label" data-tr="NEDEN BİZ" data-en="WHY US">NEDEN BİZ</div>
+  <div class="section-title" data-tr="Farkımız <em>kalitede</em><br>gizli" data-en="Our difference<br>is <em>quality</em>">Farkımız <em>kalitede</em><br>gizli</div>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">🌿</div>
+      <h3 data-tr="%100 Doğal" data-en="100% Natural">%100 Doğal</h3>
+      <p data-tr="Tüm ürünlerimiz kimyasal katkı maddesi içermez. Bitkileriniz için en saf, en doğal besin kaynağını sunuyoruz." data-en="All our products are free from chemical additives. We offer the purest, most natural nutrient source for your plants.">Tüm ürünlerimiz kimyasal katkı maddesi içermez. Bitkileriniz için en saf, en doğal besin kaynağını sunuyoruz.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📦</div>
+      <h3 data-tr="Hızlı Teslimat" data-en="Fast Delivery">Hızlı Teslimat</h3>
+      <p data-tr="Siparişleriniz en kısa sürede hazırlanır ve Türkiye'nin her noktasına güvenle teslim edilir." data-en="Your orders are prepared promptly and delivered safely to every corner of Turkey.">Siparişleriniz en kısa sürede hazırlanır ve Türkiye'nin her noktasına güvenle teslim edilir.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🤝</div>
+      <h3 data-tr="Uzman Destek" data-en="Expert Support">Uzman Destek</h3>
+      <p data-tr="Hangi ürünün sizin için doğru olduğundan emin değil misiniz? Uzman ekibimiz size yardımcı olmaktan memnuniyet duyar." data-en="Not sure which product is right for you? Our expert team is happy to help.">Hangi ürünün sizin için doğru olduğundan emin değil misiniz? Uzman ekibimiz size yardımcı olmaktan memnuniyet duyar.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS PREVIEW -->
+<section class="products-preview">
+  <div class="products-header">
+    <div>
+      <div class="section-label" data-tr="ÜRÜNLERİMİZ" data-en="OUR PRODUCTS">ÜRÜNLERİMİZ</div>
+      <div class="section-title" style="margin-bottom:0" data-tr="Her bitki için<br><em>doğru toprak</em>" data-en="The <em>right soil</em><br>for every plant">Her bitki için<br><em>doğru toprak</em></div>
+    </div>
+    <a href="urunler.html" class="btn-secondary" data-tr="Tümünü Gör →" data-en="See All →">Tümünü Gör →</a>
+  </div>
+  <div class="products-grid">
+    <div class="prod-card">
+      <span class="prod-emoji">🌿</span>
+      <div class="prod-name" data-tr="Evrensel Torf" data-en="Universal Peat">Evrensel Torf</div>
+      <div class="prod-desc" data-tr="Her tür bitki için ideal. 3, 5, 10, 20, 40, 70, 80 lt seçenekleri." data-en="Ideal for all plant types. Available in 3, 5, 10, 20, 40, 70, 80 lt.">Her tür bitki için ideal. 3, 5, 10, 20, 40, 70, 80 lt seçenekleri.</div>
+      <span class="prod-tag" data-tr="En Çok Satan" data-en="Best Seller">En Çok Satan</span>
+    </div>
+    <div class="prod-card">
+      <span class="prod-emoji">🌵</span>
+      <div class="prod-name" data-tr="Kaktüs Toprağı" data-en="Cactus Soil">Kaktüs Toprağı</div>
+      <div class="prod-desc" data-tr="Kaktüs ve sukulent bitkiler için özel formül. Mükemmel drenaj." data-en="Special formula for cacti and succulents. Perfect drainage.">Kaktüs ve sukulent bitkiler için özel formül. Mükemmel drenaj.</div>
+      <span class="prod-tag" data-tr="Özel Formül" data-en="Special Formula">Özel Formül</span>
+    </div>
+    <div class="prod-card">
+      <span class="prod-emoji">🌸</span>
+      <div class="prod-name" data-tr="Orkide Toprağı" data-en="Orchid Soil">Orkide Toprağı</div>
+      <div class="prod-desc" data-tr="Orkideler için ideal nem dengesi ve havalanma. 3 lt ambalaj." data-en="Ideal moisture balance and aeration for orchids. 3 lt package.">Orkideler için ideal nem dengesi ve havalanma. 3 lt ambalaj.</div>
+      <span class="prod-tag" data-tr="Premium" data-en="Premium">Premium</span>
+    </div>
+    <div class="prod-card">
+      <span class="prod-emoji">🌱</span>
+      <div class="prod-name" data-tr="Büyük Boy Torf" data-en="Large Peat">Büyük Boy Torf</div>
+      <div class="prod-desc" data-tr="Bahçe ve tarla kullanımı için ekonomik büyük boy seçenekler." data-en="Economical large size options for garden and field use.">Bahçe ve tarla kullanımı için ekonomik büyük boy seçenekler.</div>
+      <span class="prod-tag" data-tr="Ekonomik" data-en="Economical">Ekonomik</span>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="section-label" data-tr="MÜŞTERİ YORUMLARI" data-en="CUSTOMER REVIEWS">MÜŞTERİ YORUMLARI</div>
+  <div class="section-title" data-tr="Müşterilerimiz<br><em>ne diyor?</em>" data-en="What do our<br><em>customers say?</em>">Müşterilerimiz<br><em>ne diyor?</em></div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <div class="testimonial-text" data-tr='"Torf 10 lt ürününü düzenli kullanıyorum. Bitkilerim hiç bu kadar sağlıklı olmamıştı. Kesinlikle tavsiye ederim."' data-en='"I regularly use the 10 lt peat product. My plants have never been this healthy. Highly recommend."'>"Torf 10 lt ürününü düzenli kullanıyorum. Bitkilerim hiç bu kadar sağlıklı olmamıştı. Kesinlikle tavsiye ederim."</div>
+      <div class="testimonial-author">
+        <div class="author-avatar" data-ss-r1-avatar="">A</div>
+        <div><div class="author-name">Ayşe K.</div><div class="author-role" data-tr="Peyzaj Tasarımcısı" data-en="Landscape Designer">Peyzaj Tasarımcısı</div></div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <div class="testimonial-text" data-tr='"Kaktüs toprağı mükemmel. Drenajı çok iyi, artık köklerim çürümüyor. Hızlı teslimat için de ayrıca teşekkürler."' data-en='"The cactus soil is excellent. Great drainage, no more root rot. Many thanks for the fast delivery too."'>"Kaktüs toprağı mükemmel. Drenajı çok iyi, artık köklerim çürümüyor. Hızlı teslimat için de ayrıca teşekkürler."</div>
+      <div class="testimonial-author">
+        <div class="author-avatar" data-ss-r2-avatar="">M</div>
+        <div><div class="author-name">Mehmet Y.</div><div class="author-role" data-tr="Bitki Meraklısı" data-en="Plant Enthusiast">Bitki Meraklısı</div></div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <div class="testimonial-text" data-tr='"Büyük boy torf alıyorum, fiyat performans çok iyi. Çiftliğimdeki tüm ihtiyacımı buradan karşılıyorum."' data-en='"I buy large peat, great value for money. I meet all my farm needs from here."'>"Büyük boy torf alıyorum, fiyat performans çok iyi. Çiftliğimdeki tüm ihtiyacımı buradan karşılıyorum."</div>
+      <div class="testimonial-author">
+        <div class="author-avatar" data-ss-r3-avatar="">F</div>
+        <div><div class="author-name">Fatma Ş.</div><div class="author-role" data-tr="Çiftçi" data-en="Farmer">Çiftçi</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="section-label" data-tr="HEMEN BAŞLAYIN" data-en="GET STARTED">HEMEN BAŞLAYIN</div>
+  <div class="section-title" data-tr="Bitkileriniz için<br>en <em>iyi</em> seçim" data-en="The <em>best</em> choice<br>for your plants">Bitkileriniz için<br>en <em>iyi</em> seçim</div>
+  <p class="cta-sub" data-tr="Sorularınız için bize WhatsApp'tan ulaşın veya ürün kataloğumuzu inceleyin." data-en="Contact us on WhatsApp for questions or browse our product catalog.">Sorularınız için bize WhatsApp'tan ulaşın veya ürün kataloğumuzu inceleyin.</p>
+  <div class="cta-buttons">
+    <a href="https://wa.me/905XXXXXXXXX" data-ss-wa="" class="whatsapp-btn" target="_blank">💬 WhatsApp ile Ulaşın</a>
+    <a href="urunler.html" class="btn-primary" data-tr="Ürün Kataloğu →" data-en="Product Catalog →">Ürün Kataloğu →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">Torf & Toprak</div>
+      <p class="footer-desc" data-tr="Doğal ve organik bahçe ürünleri. Bitkilerinizin en iyi haliyle büyümesi için buradayız." data-en="Natural and organic garden products. We are here for your plants to grow at their best.">Doğal ve organik bahçe ürünleri. Bitkilerinizin en iyi haliyle büyümesi için buradayız.</p>
+    </div>
+    <div class="footer-col">
+      <h4 data-tr="Ürünler" data-en="Products">Ürünler</h4>
+      <a href="urunler.html" data-tr="Torf Çeşitleri" data-en="Peat Varieties">Torf Çeşitleri</a>
+      <a href="urunler.html" data-tr="Kaktüs Toprağı" data-en="Cactus Soil">Kaktüs Toprağı</a>
+      <a href="urunler.html" data-tr="Orkide Toprağı" data-en="Orchid Soil">Orkide Toprağı</a>
+    </div>
+    <div class="footer-col">
+      <h4 data-tr="Şirket" data-en="Company">Şirket</h4>
+      <a href="hakkimizda.html" data-tr="Hakkımızda" data-en="About Us">Hakkımızda</a>
+      <a href="iletisim.html" data-tr="İletişim" data-en="Contact">İletişim</a>
+    </div>
+    <div class="footer-col">
+      <h4 data-tr="İletişim" data-en="Contact">İletişim</h4>
+      <a href="tel:+905XXXXXXXXX" data-ss-href="phone" data-ss="phone">+90 5XX XXX XX XX</a>
+      <a href="mailto:info@torfvetoprak.com" data-ss-href="email" data-ss="email">info@torfvetoprak.com</a>
+      <a href="https://wa.me/905XXXXXXXXX" data-ss-wa="" target="_blank">WhatsApp</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span data-tr="© 2026 Torf & Toprak. Tüm hakları saklıdır." data-en="© 2026 Torf & Toprak. All rights reserved.">© 2026 Torf & Toprak. Tüm hakları saklıdır.</span>
+    <span data-tr="Doğadan gelenler doğaya döner 🌿" data-en="What comes from nature returns to nature 🌿">Doğadan gelenler doğaya döner 🌿</span>
+  </div>
+</footer>
+
+<script src="themes.js"></script>
+<script src="site_loader.js"></script>
+<script>
+let currentLang = 'tr';
+
+function setLang(lang){
+  currentLang = lang;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent === lang.toUpperCase()));
+  document.querySelectorAll('[data-tr]').forEach(el => {
+    const text = el.getAttribute('data-' + lang);
+    if(text) el.innerHTML = text;
+  });
+}
+
+function toggleMenu(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+</script>
+</body>
+</html>
