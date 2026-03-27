@@ -711,7 +711,7 @@ body.effect-gradient{background-size:400% 400%;animation:gradientShift 15s ease 
 
 // APP ACCESS PROTECTION
 (function(){
-  const PASS=localStorage.getItem('torf_pass')||'torf2024';
+  const PASS=localStorage.getItem('torf_pass')||'torf2026';
   const stored=sessionStorage.getItem('torf_auth');
   if(stored!==PASS){
     const bg='position:fixed;inset:0;background:#0f1117;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:Inter,sans-serif;z-index:99999';
@@ -722,7 +722,7 @@ body.effect-gradient{background-size:400% 400%;animation:gradientShift 15s ease 
     document.getElementById('passInput').addEventListener('keydown',e=>{if(e.key==='Enter')checkPass();});
     window.checkPass=function(){
       const entered=document.getElementById('passInput').value;
-      const pass=localStorage.getItem('torf_pass')||'torf2024';
+      const pass=localStorage.getItem('torf_pass')||'torf2026';
       if(entered===pass){sessionStorage.setItem('torf_auth',pass);div.remove();}
       else{document.getElementById('passErr').textContent='Yanlış şifre!';document.getElementById('passInput').value='';}
     };
