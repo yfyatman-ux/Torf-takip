@@ -1,0 +1,19 @@
+{
+  "name": "Torf & Toprak Takip",
+  "short_name": "Torf Takip",
+  "description": "Satış ve stok takip uygulaması",
+  "start_url": "./app.html",
+  "display": "standalone",
+  "background_color": "#0f1117",
+  "theme_color": "#0f1117",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%234f7cff'/><text y='.9em' font-size='70' x='15'>🌿</text></svg>",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "productivity"]
+}
